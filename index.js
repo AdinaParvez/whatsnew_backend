@@ -6,11 +6,17 @@ import cors from 'cors'
 import path from 'path'
 import dotenv from 'dotenv'
 
-//configure env
+const corsOptions = {
+  origin: 'https://653361ecbfae0c37e94fc717--aquamarine-muffin-72bae9.netlify.app/',
+  optionsSuccessStatus: 200,
+};
+
+
+
 dotenv.config()
 
 const app = express()
-app.use(cors())
+app.use(cors(corsOptions));
 app.use(bodyParser.json({extended: true}))
 app.use(bodyParser.urlencoded({extended: true}))
 app.use('/', Route)
